@@ -40,6 +40,26 @@
                     echo "You have deleted that book from the database, unless it did not exist!<br><form action=\"http://ck.csit.selu.edu/~raiford/PHPtest/letsphp.php\"><input type=\"submit\" value=\"Home\"></form>";
 
                 }
+                
+                
+                                elseif($select=="search"){
+                    $lines = file("./database");
+                    $results ="";
+                    foreach($lines as $linenum => $line){
+                        $arr = explode("%",$line);
+                        if(strpos($arr[0],($author != "null") ? $author : $arr[0]) !== false
+                           && strpos($arr[1],($title != "null") ? $title : $arr[1]) !== false
+                           && strpos($arr[2],($isbn != "null") ? $isbn : $arr[2]) !== false
+                           && strpos($arr[3],($publisher != "null") ? $publisher : $arr[3]) !== false
+                           && strpos($arr[4],($year != "null") ? $year : $arr[4]) !== false){
+                            $results= $results . $line ."<br>";
+                        }
+                    }
+                    echo "Here are your results!<br><br>";
+                    echo $results;
+                    echo "Thats all! Nothing here? try again!<br><br><form action=\"http://ck.csit.selu.edu/~raiford/PHPtest/letsphp.php\"><input type=\"submit\" value=\"Home\"></form>";
+
+                }
             }
             
         ?>
