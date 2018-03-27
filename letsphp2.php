@@ -28,11 +28,11 @@
                     $lines = file("./database");
                     foreach($lines as $linenum => $line){
                         $arr = explode("%",$line);
-                        if(strpos($arr[0],($author != "null") ? $author : $arr[0]) !== false
-                           && strpos($arr[1],($title != "null") ? $title : $arr[1]) !== false
-                           && strpos($arr[2],($isbn != "null") ? $isbn : $arr[2]) !== false
-                           && strpos($arr[3],($publisher != "null") ? $publisher : $arr[3]) !== false
-                           && strpos($arr[4],($year != "null") ? $year : $arr[4]) !== false){
+                        if(strcasecmp($arr[0],($author != "null") ? $author : $arr[0]) == 0
+                           && strcasecmp($arr[1],($title != "null") ? $title : $arr[1]) == 0
+                           && strcasecmp($arr[2],($isbn != "null") ? $isbn : $arr[2]) == 0
+                           && strcasecmp($arr[3],($publisher != "null") ? $publisher : $arr[3]) == 0
+                           && strcasecmp($arr[4],($year != "null") ? $year : $arr[4]) == 0){
                             unset($lines[$linenum]);
                         }
                     }
@@ -47,11 +47,11 @@
                     $results ="";
                     foreach($lines as $linenum => $line){
                         $arr = explode("%",$line);
-                        if(strpos($arr[0],($author != "null") ? $author : $arr[0]) !== false
-                           && strpos($arr[1],($title != "null") ? $title : $arr[1]) !== false
-                           && strpos($arr[2],($isbn != "null") ? $isbn : $arr[2]) !== false
-                           && strpos($arr[3],($publisher != "null") ? $publisher : $arr[3]) !== false
-                           && strpos($arr[4],($year != "null") ? $year : $arr[4]) !== false){
+                        if(strcasecmp($arr[0],($author != "null") ? $author : $arr[0]) == 0
+                           && strcasecmp($arr[1],($title != "null") ? $title : $arr[1]) == 0
+                           && strcasecmp($arr[2],($isbn != "null") ? $isbn : $arr[2]) == 0
+                           && strcasecmp($arr[3],($publisher != "null") ? $publisher : $arr[3]) == 0
+                           && strcasecmp($arr[4],($year != "null") ? $year : $arr[4]) == 0){
                             $results= $results . $line ."<br>";
                         }
                     }
